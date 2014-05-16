@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140509101650) do
+ActiveRecord::Schema.define(version: 20140509103850) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -45,5 +45,19 @@ ActiveRecord::Schema.define(version: 20140509101650) do
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "bills", force: true do |t|
+    t.date     "date"
+    t.integer  "cost"
+    t.string   "company"
+    t.text     "description"
+    t.string   "type"
+    t.string   "receipt"
+    t.integer  "spent_by_id"
+    t.integer  "paid_by_id"
+    t.integer  "paid_back_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
